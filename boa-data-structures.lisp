@@ -1,5 +1,18 @@
 (in-package :boa-editor)
 
+(defvar *creatures* (make-array 256 :element-type 'creature
+								:initial-element (make-instance 'creature)))
+(defvar *floors* (make-array 256 :element-type 'floor-type
+							 :initial-element (make-instance 'floor-type)))
+(defvar *terrains* (make-array 512 :element-type 'terrain
+							   :initial-element (make-instance 'terrain)))
+(defvar *items* (make-array 512 :element-type 'item
+							:initial-element (make-instance 'item)))
+(defvar *last-edited* nil)
+
+(load-scen-data "/Users/adamvh/Documents/Programming/Lisp/BOAEditorRemake/corescendata.txt")
+(load-scen-data "/Users/adamvh/Documents/Programming/Lisp/BOAEditorRemake/corescendata2.txt")
+
 (define-binary-class scenario-big-endian ()
   ((scen-data scenario-data-type-big-endian)
    (outdoor-data (binary-vector-type :type 'outdoor-record-type-big-endian
@@ -39,6 +52,8 @@
   ((record :initarg :record :accessor record)
    (layout :initarg :layout :accessor layout)))
 
-
+;; These are the things I need to know more or less verbatim from the C source.  So, I get them
+;; verbatim from the C source.  See boa_file_io.lisp
 (make-boa-defines "/Users/adamvh/Documents/Programming/Lisp/BOAEditorRemake/global.h")
-(define-boa-datastructures (scenario-data-type town-record-type outdoor-record-type tiny-tr-type ave-tr-type big-tr-type))
+(define-boa-datastructures (scenario-data-type town-record-type outdoor-record-type tiny-tr-type
+							ave-tr-type big-tr-type creature-type terrain-type-type item-type floor-type-type))
