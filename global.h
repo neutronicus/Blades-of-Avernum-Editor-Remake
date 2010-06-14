@@ -4,17 +4,6 @@
 
 #define EXILE_BIG_GUNS 1
 
-//lengths of time to wait between events
-#define DENSE_TICKS 10
-#define SPARSE_TICKS 60
-#define VERY_SPARSE_TICKS 300
-#define	SLEEP_TICKS 0L
-
-#define	MOUSE_REGION	0L
-#define DRAG_EDGE		15
-#define IN_FRONT	(WindowPtr)-1L
-#define	NIL				0L
-
 
 #define	NUM_BUTTONS		15
 #define	NUM_P_PER_TOWN		20
@@ -59,11 +48,6 @@
 
 // new blades consts
 #define	SCRIPT_NAME_LEN	14
-
-#define	CDGT	cd_retrieve_text_edit_str
-#define	CDGN	cd_retrieve_text_edit_num
-#define	CDST	cd_set_text_edit_str
-#define	CDSN	cd_set_text_edit_num
 
 #define NUM_WAYPOINTS	10
 
